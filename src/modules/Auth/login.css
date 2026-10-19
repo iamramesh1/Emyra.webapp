@@ -1,0 +1,298 @@
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.login-left {
+  flex: 1;
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1025 50%, #0f1a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,107,53,0.15), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.left-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 48px;
+  color: var(--text);
+}
+
+.left-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.left-content p {
+  color: var(--text2);
+  font-size: 17px;
+  margin-bottom: 32px;
+}
+
+.left-content img {
+  width: 280px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  opacity: 0.7;
+  border: 1px solid var(--border);
+}
+
+.login-right {
+  width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: var(--bg2);
+  border-left: 1px solid var(--border);
+}
+
+.login-card { width: 100%; }
+
+.login-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.sub-text { color: var(--text2); font-size: 15px; margin-bottom: 32px; }
+
+.input-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text2);
+  font-size: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+.input-group input:focus { border-color: var(--accent); }
+.input-group input::placeholder { color: var(--text2); }
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--text2);
+}
+.options a { color: var(--accent); }
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+.login-btn:hover { background: var(--accent2); transform: translateY(-1px); }
+.login-btn:disabled { cursor: wait; opacity: 0.7; transform: none; }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.social-buttons { display: flex; gap: 12px; margin-bottom: 20px; }
+.google-btn, .facebook-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.google-btn:hover { border-color: var(--accent); }
+.facebook-btn:hover { border-color: #1877f2; color: #1877f2; }
+
+.signup-text {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text2);
+}
+.text-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+.text-link:hover { color: var(--accent2); text-decoration: underline; }
+.signup-text .text-link { font-weight: 600; margin-left: 4px; }
+
+.auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.62);
+}
+
+.swal2-container {
+  z-index: 2100 !important;
+}
+
+.auth-button-spinner {
+  margin-right: 8px;
+  animation: auth-spinner-rotation 800ms linear infinite;
+}
+
+@keyframes auth-spinner-rotation {
+  to { transform: rotate(360deg); }
+}
+
+.auth-modal {
+  position: relative;
+  width: min(100%, 460px);
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
+}
+
+.auth-modal h2 {
+  margin: 0 36px 8px 0;
+  font-size: 26px;
+  color: var(--text);
+}
+
+.auth-modal-description {
+  margin: 0 0 24px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+.auth-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text2);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.auth-modal-close:hover { background: var(--bg2); color: var(--text); }
+
+.auth-field {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-field input {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.auth-field input:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-color: var(--accent);
+}
+
+.modal-secondary-action {
+  display: block;
+  margin: 16px auto 0;
+  padding: 6px;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.modal-secondary-action:disabled { cursor: wait; opacity: 0.6; }
+
+@media (max-width: 900px) { .login-left { display: none; } .login-right { width: 100%; } }
+
+@media (max-width: 520px) {
+  .login-right { padding: 32px 20px; }
+  .auth-modal { padding: 28px 20px; }
+}
