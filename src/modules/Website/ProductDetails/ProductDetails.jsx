@@ -117,6 +117,7 @@ import QuoteRequestModal from "../Product/QuoteRequestModal";
 import { showSuccess, showError } from "../../../shared/utils/alert";
 
 function getProductImages(product) {
+  debugger;
   const isImagePath = (value) =>
     typeof value === "string" &&
     value.trim() !== "" &&

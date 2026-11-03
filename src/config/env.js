@@ -8,17 +8,17 @@ const env = {
   AGENT_API_URL:
     import.meta.env.VITE_AGENT_API_URL ||
 
-    "https://localhost:7254/api",
+    "https://cbinitin-002-site3.gtempurl.com/api",
 
   USER_API_URL:
     import.meta.env.VITE_USER_API_URL ||
 
-    "https://localhost:7101/api",
+    "https://cbinitin-002-site3.gtempurl.com/api",
 
   DIGITAL_API_URL:
     import.meta.env.VITE_DIGITAL_API_URL ||
 
-    "https://localhost:7254/api",
+    "https://cbinitin-002-site3.gtempurl.com/api",
 
   // Razorpay PUBLIC key id (starts with "rzp_test_" or "rzp_live_").
   // Safe to expose on the client; the secret key stays server-side only.
